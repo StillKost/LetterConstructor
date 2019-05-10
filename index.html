@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Constructor</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	
+</head>
+<body>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+<!--             <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+                </a>
+            </li>            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul> -->
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1">Цвет фона<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-1" class="collapse">
+                        <li class="color">
+                        	<span class="aClass">
+                        		Уровень красного по RGB
+                        		<input class="bg-color-switcher color-switcher red" id="bg-red" type="range" min="0" max="255">
+                        	</span>
+                        	<span class="aClass">
+                        		Уровень зеленого по RGB
+                        		<input class="bg-color-switcher color-switcher green" id="bg-green" type="range" min="0" max="255">
+                        	</span>
+                        	<span class="aClass">
+                        		Уровень синего по RGB
+                        		<input class="bg-color-switcher color-switcher blue" id="bg-blue" type="range" min="0" max="255">
+                        	</span>
+							<span class="aClass">
+                        		<input class="side-input" id="bg-reset" type="button" value="Сброс">
+                        	</span>                          	                        	
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2">Цвет текста<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-2" class="collapse">
+                        <li class="color">
+                        	<span class="aClass">
+                        		Уровень красного по RGB
+                        		<input class="fn-color-switcher color-switcher red" id="fn-red" type="range" min="0" max="255">
+                        	</span>
+                        	<span class="aClass">
+                        		Уровень зеленого по RGB
+                        		<input class="fn-color-switcher color-switcher green" id="fn-green" type="range" min="0" max="255">
+                        	</span>
+                        	<span class="aClass">
+                        		Уровень синего по RGB
+                        		<input class="fn-color-switcher color-switcher blue" id="fn-blue" type="range" min="0" max="255">
+                        	</span>
+							<span class="aClass">
+                        		<input class="side-input" id="fn-reset" type="button" value="Сброс">
+                        	</span>                          	                        	
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-5">Формат текста<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul class="collapse" id="submenu-5">
+						<li class="text-align">
+							<span class="aClass">
+								<span class="discr">Выравнивание</span><br>
+	                        	<input type="radio" class="align-type" id="center" name="option-gr"> по центру<br>
+	                        	<input type="radio" class="align-type" id="right" name="option-gr"> по правому краю<br>
+	                        	<input type="radio" class="align-type" id="left" name="option-gr"> по левому краю<br>
+	                        	<input type="radio" class="align-type" id="justify" name="option-gr"> по ширине<br>
+							</span>
+						</li>
+						<li>
+                        	<span class="aClass">
+	                        	<span class="discr">Шрифт</span><span id="font-val"></span>
+	                        	<select id="font">
+	                        		<optgroup>
+	                        			<option class="font-name">Academy Engraved Let</option>
+	                        			<option class="font-name">Georgia</option>
+	                        			<option class="font-name">Sylfaen</option>
+	                        			<option class="font-name">Courier New</option>
+	                        		</optgroup>
+									<optgroup>
+	                        			<option class="font-name">Arial</option>
+	                        			<option class="font-name">Century Gothic</option>
+	                        			<option class="font-name">Comic Sans Ms</option>
+	                        			<option class="font-name">Cursive</option>
+	                        		</optgroup>
+	                        	</select>
+                        	</span>
+                    	</li>
+                        <li>
+                        	<span class="aClass">
+	                        	<span class="discr">Размер шрифта: </span><span id="size-value"></span>
+	                        	<input type="range" id="font-size" min="10" max="25">
+                        	</span>
+                    	</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-3">Границы <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-3" class="collapse">
+						<li class="border-style">
+							<span class="aClass">
+								<span class="discr">Тип границ</span><br>
+	                        	<input type="radio" class="border-type" id="dashed" name="option-gr">   - - - - - - - -<br>
+	                        	<input type="radio" class="border-type" id="solid" name="option-gr">   ___________<br>
+	                        	<input type="radio" class="border-type" id="dotted" name="option-gr">   . . . . . . . . . . . .<br>
+	                        	<input type="radio" class="border-type" id="none" name="option-gr">  Без границ<br>
+							</span>
+						</li>
+						<li class="border-style">
+							<span class="aClass">
+								<span class="discr">Цвет границ</span><br>
+                        		Уровень красного по RGB
+                        		<input class="bor-color-switcher color-switcher red" id="bor-red" type="range" min="0" max="255">
+                        	</span>
+                        	<span class="aClass">
+                        		Уровень зеленого по RGB
+                        		<input class="bor-color-switcher color-switcher green" id="bor-green" type="range" min="0" max="255">
+                        	</span>
+                        	<span class="aClass">
+                        		Уровень синего по RGB
+                        		<input class="bor-color-switcher color-switcher blue" id="bor-blue" type="range" min="0" max="255">
+                        	</span>
+						</li>
+						<li class="border-style">
+							<span class="aClass">
+								<span class="discr">Размер : </span><span id="bor-size-val"></span><br>
+                        		<input id="bor-size" type="range" min="0" max="70">
+                        	</span>
+						</li>
+						<li class="border-style">
+							<span class="aClass">
+								<span class="discr">Закругленность : </span><span id="bor-rad-val"></span><br>
+                        		<input id="bor-rad" type="range" min="0" max="120">
+                        	</span>
+						</li>
+						<li>
+							<span class="aClass">
+                        		<input class="side-input" id="bor-reset" type="button" value="Сброс">
+                        	</span> 
+						</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-4">Отступы <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-4" class="collapse">
+                    	<li>
+                    		<span class="aClass">
+                    			<span class="discr">Верхний: </span><span id="pad-top-val"></span><br>
+                    			<input type="range" class="paddings" id="pad-top" min="10" max="200">
+                    		</span>
+                    	</li>
+                      	<li>
+                    		<span class="aClass">
+                    			<span class="discr">Нижний: </span><span id="pad-bottom-val"></span><br>
+                    			<input type="range" class="paddings" id="pad-bottom" min="10" max="200">
+                    		</span>
+                    	</li>
+                      	<li>
+                    		<span class="aClass">
+                    			<span class="discr">Левый: </span><span id="pad-left-val"></span><br>
+                    			<input type="range" class="paddings" id="pad-left" min="10" max="200">
+                    		</span>
+                    	</li>
+                      	<li>
+                    		<span class="aClass">
+                    			<span class="discr">Правый: </span><span id="pad-right-val"></span><br>
+                    			<input type="range" class="paddings" id="pad-right" min="10" max="200">
+                    		</span>
+                    	</li>
+                    </ul>                	
+                </li>
+                <li>
+                    <a href="sugerencias"><i class="fa fa-fw fa-paper-plane-o"></i> MENU 4</a>
+                </li>
+                <li>
+                    <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12" id="content">
+                    <h3>Предварительный просмотр</h3>
+                    <div id="overlay">
+                    	<div id="letter">
+                    		<div class="h2" id="letter-title">Letter title...</div>
+                    		<div id="letter-body">
+                    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    		</div>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+</body>
+</html>
