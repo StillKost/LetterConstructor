@@ -1,4 +1,42 @@
 ﻿$(document).ready(function (argument) {
+
+
+
+    //console.log(body);
+
+    $('#letter').dblclick( function(event){ 
+        var container = $('#letter');
+        var body = $('#letter-body').text().split('\n').join('').trim();
+        body = body.replace(/\s+/g,' ');
+        var title = $('#letter-title').text().split('\n').join('').trim();
+        title = title.replace(/\s+/g,' ');
+        event.preventDefault(); 
+        $('#nav_').hide();
+        $('#overlay_').fadeIn(400, 
+            function(){ 
+                $('#modal_form') 
+                    .css('display', 'block')
+                    .animate({opacity: 1, top: '50%'}, 200); 
+        });
+    $('#edit-title').val(title);
+    $('#edit-body').val(body);
+
+
+
+    });
+    // Зaкрытие мoдaльнoгo oкнa
+    $('#modal_close, #overlay_').click( function(){ 
+
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,  
+                function(){ // пoсле aнимaции
+                    $(this).css('display', 'none'); 
+                    $('#overlay_').fadeOut(400); 
+                }
+            );
+        $('#nav_').show();
+    });
+
 	$(function(){
 	    $('[data-toggle="tooltip"]').tooltip();
 	    $(".side-nav .collapse").on("hide.bs.collapse", function() {                   
@@ -8,9 +46,6 @@
 	        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");        
 	    });
 	});
-	console.log('удача!');
-
-	var container = $('#letter');
     
 
 	function ChangeBorderStyle(option){
@@ -38,7 +73,7 @@
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////EVENTS////////////////////////////////////////////
+///////////////////////////////////CONSTRUCTOR EVENTS///////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
     $('.bg-color-switcher').change(function(){
     	var red = $('#bg-red').val();
@@ -136,4 +171,33 @@
     	$('#bor-size-val').html(num + ' px');
     });
 	
+    $('#set-bg-image').click(function(){
+        var link = $('#bg-image-link').val().trim();
+        var value = "url(" + link + ")";
+        $(container).css('background-image', value);
+    });
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////LETTER BOBY TEXT////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+    $('#text-ready').click(function(){
+        var newTitle = $('#edit-title').val().trim();
+        var newBody = $('#edit-body').val().trim();
+
+        $('#letter-title').html(newTitle);
+        $('#letter-body').html(newBody);
+
+
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,  
+                function(){ // пoсле aнимaции
+                    $(this).css('display', 'none'); 
+                    $('#overlay_').fadeOut(400); 
+                }
+            );
+        $('#nav_').show();
+    });
 });

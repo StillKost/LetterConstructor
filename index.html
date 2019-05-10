@@ -15,7 +15,7 @@
 <div id="noty-holder"></div>
 <div id="wrapper">
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav id="nav_" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
 <!--             <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
@@ -35,7 +35,7 @@
         <div class="navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-1">Цвет фона<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1">Фон<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
                         <li class="color">
                         	<span class="aClass">
@@ -49,10 +49,19 @@
                         	<span class="aClass">
                         		Уровень синего по RGB
                         		<input class="bg-color-switcher color-switcher blue" id="bg-blue" type="range" min="0" max="255">
-                        	</span>
-							<span class="aClass">
-                        		<input class="side-input" id="bg-reset" type="button" value="Сброс">
-                        	</span>                          	                        	
+                        	</span>                        	                        	
+                        </li>
+                        <li>
+                            <span class="aClass">
+                                <span class="discr">Фоновое изображение</span><br>
+                                <input type="text" id="bg-image-link" class="side-textbox" placeholder="Ссылка...">
+                                <input type="button" class="side-input" id="set-bg-image" value="Установить">
+                            </span>
+                        </li>
+                        <li>
+                            <span class="aClass">
+                                <input type="button" class="side-input" id="bg-reset" value="Сброс">
+                            </span>
                         </li>
                     </ul>
                 </li>
@@ -208,9 +217,10 @@
             <!-- Page Heading -->
             <div class="row" id="main" >
                 <div class="col-sm-12 col-md-12" id="content">
-                    <h3>Предварительный просмотр</h3>
+                    <h3 align="center">Предварительный просмотр</h3>
                     <div id="overlay">
-                    	<div id="letter">
+                    	<div id="info-box"></div>
+                        <div id="letter" title="Двойной щелчок для редактирования...">
                     		<div class="h2" id="letter-title">Letter title...</div>
                     		<div id="letter-body">
                     			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -226,9 +236,19 @@
             </div>
             <!-- /.row -->
         </div>
+
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
+</div>
+<div id="modal_form">
+      <span id="modal_close">X</span> 
+      <div>
+          <input type="text" id="edit-title" placeholder="Заголовок письма..." class="edit-control">
+          <textarea id="edit-body" placeholder="Содержимое письма..." rows="5" class="edit-control"></textarea>
+          <input type="button" value="Готово" class="edit-control side-input" id="text-ready">
+      </div>
+</div>
+<div id="overlay_"></div>
 </body>
 </html>
