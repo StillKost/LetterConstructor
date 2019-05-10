@@ -1,11 +1,11 @@
 ﻿$(document).ready(function (argument) {
 
-
+    var container = $('#letter');
 
     //console.log(body);
 
     $('#letter').dblclick( function(event){ 
-        var container = $('#letter');
+
         var body = $('#letter-body').text().split('\n').join('').trim();
         body = body.replace(/\s+/g,' ');
         var title = $('#letter-title').text().split('\n').join('').trim();
