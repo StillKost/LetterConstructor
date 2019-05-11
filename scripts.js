@@ -1,8 +1,14 @@
 ﻿$(document).ready(function (argument) {
 
     var container = $('#letter');
+    var XYc;
 
     //console.log(body);
+    //LETTER CONTETENT ALL...
+    //var letterHTML = $('#letter').html().split('\n').join('').trim().replace(/\s+/g,' ');
+    //LETTER CSS TEXT
+    //var cssText = $('#letter').css('cssText');
+    //var letterAll = '<div style="width:550px;'+ cssText +'">'+ letterHTML +'</div>';
 
     $('#letter').dblclick( function(event){ 
 
@@ -71,6 +77,38 @@
     	var name = $(option).val();
     	$(container).css('font-family', name);
     }
+
+    //БЕРЕМ ВЫДЕЛЕННЫЙ ТЕКСТ
+    var getSelected = function(){
+        var t = '';
+        if(window.getSelection) {
+            t = window.getSelection();
+        } else if(document.getSelection) {
+            t = document.getSelection();
+        } else if(document.selection) {
+            t = document.selection.createRange().text;
+        }
+        return t;
+    }
+
+    $(window).mousemove(function(e){
+        //e = e || window.event
+        var html = document.documentElement
+        var body = document.body
+    
+        e.pageX = e.clientX + (html && html.scrollLeft || body && body.scrollLeft || 0) - (html.clientLeft || 0)
+        e.pageY = e.clientY + (html && html.scrollTop || body && body.scrollTop || 0) - (html.clientTop || 0)
+        XYc = e.pageX + "," + e.pageY; 
+        return XYc;
+    });
+
+
+
+
+    setInterval(function() {
+        console.log(XYc);
+    }, 2000);
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////CONSTRUCTOR EVENTS///////////////////////////////////////
@@ -200,4 +238,17 @@
             );
         $('#nav_').show();
     });
+
+    $('#edit-body').select(function(e){
+        var coordinates = XYc.split(',');
+        $('#selected-editor').css('top',coordinates[1]+'px');
+        $('#selected-editor').css('left',coordinates[0]+'px');
+        $('#selected-editor').show();
+
+    });
+
+    $('#selected-editor-close').click(function(){
+        $('#selected-editor').hide();
+    })
+
 });

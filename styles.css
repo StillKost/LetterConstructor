@@ -341,14 +341,14 @@ select{
 }
 
 #modal_form {
-  width: 500px; 
-  height: 300px;
+  width: 70%; 
+  height: 400px;
   border-radius: 5px;
   border: 3px #000 solid;
   background: #fff;
   position: fixed; 
-  top: 50px; 
-  left: 45%; 
+  bottom: 10%;
+  left: 25%; 
   margin-top: -150px;
   margin-left: -150px;
   display: none; 
@@ -357,7 +357,7 @@ select{
   padding: 30px;
 }
 /* Кнoпкa зaкрыть для тех ктo в тaнке) */
-#modal_form #modal_close {
+#modal_form #modal_close , #selected-editor-close {
   width: 21px;
   height: 21px;
   position: absolute;
@@ -380,4 +380,21 @@ select{
   left:0;
   cursor:pointer;
   display:none;
+}
+
+
+#selected-editor {
+  width: 280px;
+  /* height: 20px; */
+  background-color: #c5cecf;
+  position: fixed;
+  border: 1px solid;
+  padding: 10px;
+  display: none;
+}
+
+#selected-editor-close{
+  top: 0;
+  right: 0;
+  font-weight: bold;
 }
