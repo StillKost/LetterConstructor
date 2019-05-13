@@ -2,6 +2,75 @@
     box-sizing: border-box;
 }
 
+    #exTab1 {
+        width: 100%;
+    }
+
+    #sourse {
+        resize: none;
+        height: 300px;
+        display: none;
+    }
+
+    .my-input {
+        margin-bottom: 18px;
+        margin-top: 6px;
+    }
+
+    .my-label {
+        font-size: 18px;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    #exTab1 .tab-content {
+        color: white;
+        background-color: #428bca;
+        padding: 5px 15px;
+    }
+
+    #exTab2 h3 {
+        color: white;
+        background-color: #428bca;
+        padding: 5px 15px;
+    }
+
+    /* remove border radius for the tab */
+
+    #exTab1 .nav-pills > li > a {
+        border-radius: 0;
+    }
+
+    /* change border radius for the tab , apply corners on top*/
+
+    #exTab3 .nav-pills > li > a {
+        border-radius: 4px 4px 0 0;
+    }
+
+    #exTab3 .tab-content {
+        color: white;
+        background-color: #428bca;
+        padding: 5px 15px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #to-send-box {
+        text-align: center;
+        width: 70%;
+        position: fixed;
+        bottom: 10px;
+    }
+
+    #to-send {
+        width: 50%;
+        margin: 0 auto;
+    }
+
 .in {
     background: grey;
 }
@@ -16,7 +85,7 @@
   width: 100% !important;
 }
 
-select , input[type="text"], textarea {
+select > .aClass, input[type="text"] > .aClass, textarea  {
     padding: 3px 7px 3px 7px;
     font-size: 17px;
     font-style: italic;
@@ -35,13 +104,6 @@ select , input[type="text"], textarea {
     background: white;
     color: black;
     padding: 3px 7px 3px 7px;
-}
-
-.side-textbox:hover{
-    color: black;
-    padding: 3px 7px 3px 7px;
-    border-radius: 7px;
-    border: 1px solid;
 }
 
 .discr {

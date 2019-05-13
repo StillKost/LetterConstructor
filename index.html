@@ -235,6 +235,9 @@
                 </div>
             </div>
             <!-- /.row -->
+        <div id="to-send-box">
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="to-send">Готово</a>
+        </div>
         </div>
 
         <!-- /.container-fluid -->
@@ -253,5 +256,63 @@
       </div>
 </div>
 <div id="overlay_"></div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="exampleModalLabel"><span class="h3 my-input">Письмо готово! Выберите способ отправки:</span></span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="exTab1" class="container">
+                    <ul class="nav nav-pills">
+                        <li class="active">
+                            <a href="#1a" data-toggle="tab">Со своего email</a>
+                        </li>
+                        <li>
+                            <a href="#2a" data-toggle="tab">От имени сервиса</a>
+                        </li>
+                        <li>
+                            <a href="#3a" data-toggle="tab">Исходный код для вставки</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane active" id="1a">
+                            <h3>Заполните форму отправки</h3>
+                            <br />
+                            <span class="my-label">Адрес получателя</span>
+                            <input type="text" id="1a-email-to" class="form-control my-input" placeholder="Введите адресс получателя..." />
+                            <span class="my-label">Ваш email</span>
+                            <input type="text" id="1a-email-from" class="form-control my-input" placeholder="Введите ваш адресс ел. почты..." />
+                            <span class="my-label">Пароль</span>
+                            <input type="password" id="pw" class="form-control my-input" placeholder="Введите пароль..." />
+                            <input type="button" id="1a-send" class="btn btn-success form-control" value="Отправить" />
+                        </div>
+                        <div class="tab-pane" id="2a">
+                            <h3>Заполните форму отправки</h3>
+                            <br />
+                            <span class="my-label">Адрес получателя</span>
+                            <input type="text" id="2a-email" class="form-control my-input" placeholder="Введите адресс получателя..." />
+                            <input type="button" id="2a-send" class="btn btn-success form-control" value="Отправить" />
+                        </div>
+                        <div class="tab-pane" id="3a">
+                            <h3>Исходный код письма</h3>
+                            <input type="button" id="get-sourse" class="btn btn-success form-control my-input" value="Получить исходный код" />
+                            <br />
+                            <textarea id="sourse" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

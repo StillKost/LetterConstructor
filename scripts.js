@@ -215,6 +215,18 @@
         $(container).css('background-image', value);
     });
 
+    function GetSourseCode() {
+        var letterHTML = $('#letter').html().split('\n').join('').trim().replace(/\s+/g, ' ');
+        var cssText = $('#letter').css('cssText');
+        var letterAll = '<div style="width:550px;margin: 0 auto;' + cssText + '">' + letterHTML + '</div>';
+        return letterAll;
+    }
+
+    $('#get-sourse').click(function () {
+        $('#sourse').toggle();
+        $('#sourse').val(GetSourseCode());
+    });
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
